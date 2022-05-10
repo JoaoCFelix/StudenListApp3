@@ -1,0 +1,75 @@
+<mvc:View
+   controllerName="SAPUI5 WorkListApp.controller.App"
+   xmlns="sap.m"
+   xmlns:mvc="sap.ui.core.mvc"
+   displayBlock="true">
+<Shell>
+		<App class="myAppDemoWT">
+      <pages>
+         <Page title="{i18n>homePageTitle}">
+            <content>
+               <Panel> 
+                  <Button
+                     text = "{i18n>button1}"
+                     press = "addStudent"/>
+
+                  <Button
+                     text = "{i18n>button2}"
+                     press = "openDialog"/>
+
+                  <Table items ="{path: '/students',sorter: {path: 'Name'}}">
+                     <columns>
+                        <Column>
+                           <Text text="{i18n>column1}"/>
+                        </Column>
+
+                        <Column>
+                           <Text text="{i18n>column2}"/>
+                        </Column>
+
+                        <Column>
+                           <Text text="{i18n>column3}"/>
+                        </Column>
+
+                        <Column>
+                           <Text text="{i18n>column4}"/>
+                        </Column>
+
+                        <Column>
+                           <Text text="{i18n>column5}"/>
+                        </Column>
+
+                        <Column width="55px">
+                           <Text text="{i18n>columnedit}"/>
+                        </Column>
+
+                        <Column>
+                           <Text text="{i18n>columndelete}"/>
+                        </Column>
+                     </columns>
+
+                     <items>  
+   			            <ColumnListItem vAlign="Middle" type="Navigation" press="studentDetail">
+	   			            <cells>
+		   			            <Text text="{Name}" />
+			   		            <Text text="{Year}" />
+				   	            <Text text="{Class}" />
+                              <Text text="{Number}" />
+                              <Text text="{School}" />
+                              <Button
+                                 icon = "sap-icon://edit"
+                                 press = "editStudent"/>
+                              <Button
+                                 icon = "sap-icon://delete"
+                                 press = "deleteStudent"/>
+				               </cells>
+			               </ColumnListItem>
+		               </items>
+                  </Table> 
+               </Panel>
+            </content>
+         </Page>
+      </pages>
+   </App>
+</Shell>
+</mvc:View>

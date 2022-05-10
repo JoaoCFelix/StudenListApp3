@@ -1,0 +1,110 @@
+{
+    "_version": "1.12.0",
+    "sap.app": {
+      "id": "SAPUI5_WorkListApp",
+      "type": "application",
+      "i18n": "i18n/i18n.properties",
+      "title": "{{appTitle}}",
+      "description": "{{appDescription}}",
+      "applicationVersion": {
+        "version": "1.0.0"
+      }
+    },
+
+    "sap.ui": {
+      "technology": "UI5",
+      "deviceTypes": {
+          "desktop": true,
+          "tablet": true,
+          "phone": true
+      }
+    },
+
+    "sap.ui5": {
+      "rootView": {
+          "viewName": "SAPUI5 WorkListApp.view.App",
+          "type": "XML",
+          "id": "app"
+    },
+
+    "dependencies": {
+      "minUI5Version": "1.93",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {}
+      }
+    },
+
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "SAPUI5 WorkListApp.i18n.i18n",
+          "supportedLocales": [""],
+          "fallbackLocale": ""
+        }
+      }
+    },
+      
+	  "resources": {
+	    "css": [{
+		  "uri": "css/style.css"
+		  }]
+    },
+
+    "routing": {
+      "config": {
+      "routerClass": "sap.m.routing.Router",
+      "type": "View",
+      "viewType": "XML",
+      "path": "SAPUI5 WorkListApp.view",
+      "controlId": "App",
+      "controlAggregation": "pages"
+      },
+      "routes": [
+      {
+        "pattern": "RouteApp",
+        "name": "TargetApp",
+        "target": [
+          "TargetApp"
+        ]
+      },
+      {
+        "pattern": "RouteDetail",
+        "name": "TargetDetail",
+        "greedy": false,
+        "target": [
+          "TargetDetail"
+        ] 
+      }, 
+      {
+          "name": "TargetDetailParameter",
+					"pattern": "RouteDatail/{/students}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"TargetDetailParameter"
+					]
+      }
+      ],
+      "targets": {
+        "TargetApp": {
+          "viewType": "XML",
+          "transition": "slide",
+					"clearControlAggregation": false,
+					"viewName": "App"
+        }, 
+       "TargetDetail": {
+        "viewType": "XML",
+        "viewName": "Detail"
+      },
+      "TargetDetailParameter": {
+        "viewType": "XML",
+        "transition": "slide",
+        "clearControlAggregation": false,
+        "viewName": "Detail"
+      }
+      }
+    }
+  }
+}

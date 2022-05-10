@@ -1,0 +1,51 @@
+<core:FragmentDefinition 
+xmlns="sap.m"
+xmlns:core="sap.ui.core"
+xmlns:l="sap.ui.layout" 
+xmlns:f="sap.ui.layout.form">
+
+	<Dialog
+		id="studentDialog"
+		title="{i18n>editDialogTitle}">
+
+		<VBox class="sapUiSmallMargin">
+        <f:SimpleForm id="studentsForm"
+            singleContainerFullSize="false" 
+			binding="{/newstudent}">
+            <f:content>
+                <Label text="{i18n>label1}"/>
+                <Input id="Name" value="{Name}" />
+
+                <Label text="{i18n>label2}"/>
+                <Input value="{Year}"/>
+
+                <Label text="{i18n>label3}"/>
+                <Input value="{Class}"/>
+                
+                <Label text="{i18n>label4}"/>
+                <Input value="{Number}"/>
+
+                 <Label text="{i18n>label6}"/>
+                <Input value="{Address}"/>
+                	
+                <Label text="{i18n>label5}" />
+                <Select id="School" selectedKey="{School}">
+                    <items>
+                        <core:Item text="Raul Proença" key="Raul Proença"/>
+                        <core:Item text="Bordalo Pinheiro" key="Bordalo Pinheiro"/>
+                        <core:Item text="D.João II" key="D.João II"/>
+                    </items>
+                </Select>
+				<Button
+                	text="{i18n>button3}"
+                	press="confirmEditStudent"/>
+            </f:content>
+        </f:SimpleForm>
+    	</VBox>
+			<beginButton>
+				<Button
+                	text="{i18n>button4}"
+                	press="closeEditDialog"/>
+			</beginButton>
+	</Dialog>
+</core:FragmentDefinition>
